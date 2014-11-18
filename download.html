@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="description" content="Plaque 2.0 - a  virological assay reloaded" />
+  <title>Plaque 2.0 - a  virological assay reloaded</title>
+  <link rel="shortcut icon" href="favicon.png">
+
+<script src="ga.js"></script>  
+</head>
+
+<body>
+
+<xmp theme="slate" style="display:none;">
+# Plaque 2.0
+###a  virological assay reloaded - comming soon on [GitHub](http://github.com/plaque2)
+![Plaque 2.0](img/LOGO.png "Plaque 2.0")
+###[Home](index.html) : [Download](download.html) : [Help](help.html)
+
+
+
+
+## Compiled MATLB code (doesn't require having a MATLAB license)
+
+OS X 10.9 based compiled version, not requiring MATLAB license (but MCR). This installer version requires internet connection:
+[Plaque2_0141118_OSX_10_9_online.zip](Plaque2_0141118_OSX_10_9_online.zip) - 49 Mb
+
+
+## MATLAB Source-code GitHub Repository 
+
+All testing is based on MATLAB 2014a, however the code might run in older versions as well (no warranty)
+
+__Coming soon...__
+
+
+
+
+
+
+##Quick guide Plaque 2.0
+
+
+
+# Compiled version installation Mac OS X (tested on OS X 10.9 Mavericks)
+
+
+* Unzip the file you have downloaded
+
+
+* Run Plaque2_mcr for offline and Plaque2_web for online installation 
+This should start the setup application. The wait time will vary depending on the machine you are using.
+ 
+* Press next  
+
+
+* Specify the path to install Plaque2.0 software to and press next. By default the application is installed into /Applications/Plaque2 folder
+
+
+* Specify the path  to install MATLAB Runtime Compiler (MCR) which is required for Plaque2.0 installation(default path /Applications/MATLAB/MATLAB_Compiler_Runtime ). If you have chosen 
+Plaque2_web installer MCR will start downloading automatically.
+
+
+* Choose yes to agree to the Licence Agreement and press next
+
+
+* Press Install to start the installation and wait for it to complete. 
+
+
+* Press finish to close the installer
+
+
+# Operation (on sample images example)
+
+
+* Open Plaque2.app from the installed path (default path: /Applications/Plaque2/application/Plaque2.app)
+
+
+* Wait for the software to load. The wait time will vary depending on the machine you are using. Software will load with already optimized parameters for sample images.
+
+
+* Once the Plaque2.0 window appears you can test the workflow of Plaque2.0 on the embedded sample data in following steps for each of the modules:
+
+*Stitching
+1. Activate the checkbox at the “Stitch” module in the upper left part of the window and press the button “Stitch” located to the right of the checkbox.
+2. Press “Test Settings” button located below the panel to the right of the “Stitch” button - a new window will open.
+3. In the new window press “Go To” button - the image from the selected well demonstrating the result of stitching will appear.
+
+
+*Mask
+1. Activate the checkbox at the “Mask” module in the upper left part of the window and press the button “Mask” located to the right of the checkbox.
+2. In the panel to the right of the button select the image masking method, e.g. “Automatic Mask Definition” 
+3. Press “Test Settings” button located below the panel - a new window will open.
+4. In the new window press “Go To” button - the image from the selected well demonstrating the result of image masking will appear as semi-transparent red overlay on top of the original image.
+
+
+*Monolayer
+1. Activate the checkbox at the “Monolayer” module in the upper left part of the window and press the button “Monolayer” located to the right of the checkbox.
+2. In the panel to the right of the button select the thresholding method, e.g. “Otsu Global Thresholding” 
+3. Press “Test Settings” button located below the panel - a new window will open.
+4. In the new window press “Go To” button - the image from the selected well demonstrating the result of pixel segmentation will appear as semi-transparent blue overlay on top of the original image.
+
+
+*Plaque
+1. Activate the checkbox at the “Plaque” module in the upper left part of the window and press the button “Plaque” located to the right of the checkbox.
+2. In the dropdown (w1, w2 etc.) located in the upper right part of the panel to the right of the button select the wavelength of the plaque images - in our case w2 
+3. Press “Test Settings” button located below the panel - a new window will open.
+4. In the new window press “Go To” button - the image from the selected well demonstrating the result of plaque detection will appear as semi-transparent green overlay on top of the original image with red spots indicating detected “centers of mass” of the plaques.
+
+
+<br>
+<br>
+<br>
+***
+####            Copyright (C) 2014 Artur Yakimovich and Vardan Andriasyan
+<br>
+</xmp>
+
+<script src="v/0.2/strapdown.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+User-Agent: *
+Disallow: 
+Disallow: /v
+Disallow: /vendor
+Disallow: /src
+Disallow: /img
+Disallow: /bundle.coffee
+Disallow: /LICENSE
+Disallow: /README.md
+Disallow: /ga.js
+Disallow: /.gitignore
