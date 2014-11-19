@@ -21,10 +21,17 @@
 
 ## Compiled MATLB code (doesn't require having a MATLAB license)
 
-OS X 10.9 based compiled version, not requiring MATLAB license (but MCR). This installer version requires internet connection:
-[Plaque2_0141118_OSX_10_9_online.zip](Plaque2_0141118_OSX_10_9_online.zip) - 49 Mb
+OS X 10.9 based compiled version, not requiring MATLAB license (but MCR, which is installed automatically). This installer version requires internet connection:
+
+* [Plaque2_0141118_OSX_10_9_online.zip](Plaque2_0141118_OSX_10_9_online.zip) - 49 Mb
 
 
+
+Windows 7 (8, 8.1) 64-bit based compiled version, not requiring MATLAB license (but MCR, which is installed automatically). This installer version requires internet connection:
+
+* [Plaque2_0141118_WIN_7_8_64_online.zip](Plaque2_0141118_WIN_7_8_64_online.zip) - 55 Mb
+
+<br><br><br>
 ## MATLAB Source-code GitHub Repository 
 
 All testing is based on MATLAB 2014a, however the code might run in older versions as well (no warranty)
@@ -35,16 +42,17 @@ __Coming soon...__
 
 
 
-
+<br><br><br><br>
 ##Quick guide Plaque 2.0
+<br>
 
 
-
-# Compiled version installation Mac OS X (tested on OS X 10.9 Mavericks)
+### Installation Mac OS X (tested on OS X 10.9 Mavericks)
 
 
 * Unzip the file you have downloaded
 
+* Before installation, open the "Security & Privacy" pane by clicking "Security & Privacy". Make sure that the "General" tab is selected. Click the icon labeled "Click the lock to make changes". Enter your username and password into the prompt that appears and click "Unlock". Under the section labeled "Allow applications downloaded from:", select Anywhere. On the prompt that appears, click "Allow From Anywhere". Exit System Preferences by clicking the red button in the upper left of the window.
 
 * Run Plaque2_mcr for offline and Plaque2_web for online installation 
 This should start the setup application. The wait time will vary depending on the machine you are using.
@@ -67,8 +75,34 @@ Plaque2_web installer MCR will start downloading automatically.
 
 * Press finish to close the installer
 
+<br><br>
+### Installation Windows (tested on 7, 8 and 8.1 64-bit systems)
 
-# Operation (on sample images example)
+
+* Unzip the file you have downloaded
+
+
+* Run Plaque2_mcr for offline and Plaque2_web for online installation - the "User Account Control" will promt you to make changes to your computer - click "Yes". This should start the setup application. The wait time will vary depending on the machine you are using.
+ 
+* Press next.
+
+
+* Specify the path to install Plaque2.0 software to and press next. By default the application is installed into /Program Files/Plaque2 folder
+
+
+* Specify the path  to install MATLAB Runtime Compiler (MCR) which is required for Plaque2.0 installation(default path C:\Program Files\MATLAB\MATLAB Compiler Runtime). If you have chosen Plaque2_web installer MCR will start downloading automatically.
+
+
+* Choose yes to agree to the Licence Agreement and press next
+
+
+* Press Install to start the installation and wait for it to complete. 
+
+
+* Press finish to close the installer
+
+
+### Quick Guide using Sample Images Example
 
 
 * Open Plaque2.app from the installed path (default path: /Applications/Plaque2/application/Plaque2.app)
@@ -79,31 +113,32 @@ Plaque2_web installer MCR will start downloading automatically.
 
 * Once the Plaque2.0 window appears you can test the workflow of Plaque2.0 on the embedded sample data in following steps for each of the modules:
 
-*Stitching
-1. Activate the checkbox at the “Stitch” module in the upper left part of the window and press the button “Stitch” located to the right of the checkbox.
-2. Press “Test Settings” button located below the panel to the right of the “Stitch” button - a new window will open.
-3. In the new window press “Go To” button - the image from the selected well demonstrating the result of stitching will appear.
+
+* __Stitching__
+  1. Activate the checkbox at the "Stitch" module in the upper left part of the window and press the button "Stitch" located to the right of the checkbox.
+  2. Press "Test Settings" button located below the panel to the right of the "Stitch" button - a new window will open.
+  3. In the new window press "Go To" button - the image from the selected well demonstrating the result of stitching will appear.
 
 
-*Mask
-1. Activate the checkbox at the “Mask” module in the upper left part of the window and press the button “Mask” located to the right of the checkbox.
-2. In the panel to the right of the button select the image masking method, e.g. “Automatic Mask Definition” 
-3. Press “Test Settings” button located below the panel - a new window will open.
-4. In the new window press “Go To” button - the image from the selected well demonstrating the result of image masking will appear as semi-transparent red overlay on top of the original image.
+* __Mask__
+  1. Activate the checkbox at the "Mask" module in the upper left part of the window and press the button "Mask" located to the right of the checkbox.
+  2. In the panel to the right of the button select the image masking method, e.g. "Automatic Mask Definition" 
+  3. Press "Test Settings" button located below the panel - a new window will open.
+  4. In the new window press "Go To" button - the image from the selected well demonstrating the result of image masking will appear as semi-transparent red overlay on top of the original image.
 
 
-*Monolayer
-1. Activate the checkbox at the “Monolayer” module in the upper left part of the window and press the button “Monolayer” located to the right of the checkbox.
-2. In the panel to the right of the button select the thresholding method, e.g. “Otsu Global Thresholding” 
-3. Press “Test Settings” button located below the panel - a new window will open.
-4. In the new window press “Go To” button - the image from the selected well demonstrating the result of pixel segmentation will appear as semi-transparent blue overlay on top of the original image.
+* __Monolayer__
+  1. Activate the checkbox at the "Monolayer" module in the upper left part of the window and press the button "Monolayer" located to the right of the checkbox.
+  2. In the panel to the right of the button select the thresholding method, e.g. "Otsu Global Thresholding" 
+  3. Press "Test Settings" button located below the panel - a new window will open.
+  4. In the new window press "Go To" button - the image from the selected well demonstrating the result of pixel segmentation will appear as semi-transparent blue overlay on top of the original image.
 
 
-*Plaque
-1. Activate the checkbox at the “Plaque” module in the upper left part of the window and press the button “Plaque” located to the right of the checkbox.
-2. In the dropdown (w1, w2 etc.) located in the upper right part of the panel to the right of the button select the wavelength of the plaque images - in our case w2 
-3. Press “Test Settings” button located below the panel - a new window will open.
-4. In the new window press “Go To” button - the image from the selected well demonstrating the result of plaque detection will appear as semi-transparent green overlay on top of the original image with red spots indicating detected “centers of mass” of the plaques.
+* __Plaque__
+  1. Activate the checkbox at the "Plaque" module in the upper left part of the window and press the button "Plaque" located to the right of the checkbox.
+  2. In the dropdown (w1, w2 etc.) located in the upper right part of the panel to the right of the button select the wavelength of the plaque images - in our case w2 
+  3. Press "Test Settings" button located below the panel - a new window will open.
+  4. In the new window press "Go To" button - the image from the selected well demonstrating the result of plaque detection will appear as semi-transparent green overlay on top of the original image with red spots indicating detected "centers of mass" of the plaques.
 
 
 <br>
