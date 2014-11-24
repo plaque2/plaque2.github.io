@@ -18,23 +18,17 @@
 
 # Installation, Getting started and getting Help with Plaque 2.0
 
-The Plaque 2.0 software is intended for quantification  and visualization of viral spread in cell mono-layers. Plaque2.0 will be available as MATLAB source code or as precompiled for  various platforms (Windows, Mac, Linux - see [Download](download.html) section) software based on MATLAB Compiler Runtime (MCR). The software is available under the (GPLv3) [http://www.gnu.org/copyleft/gpl.html] license. MCR based version doesn't require MATLAB license to run, however it requires download of the MCR from Mathorks website, which will occur autmatically during the installation process.
+The Plaque 2.0 software is intended for quantification  and visualization of viral spread in cell mono-layers. Plaque2.0 will be available as MATLAB source code or as precompiled for  various platforms (Windows, Mac, Linux - see [Download](download.html) section) software based on MATLAB Compiler Runtime (MCR). The software is available under the (GPLv3) [http://www.gnu.org/copyleft/gpl.html] license. MCR based version doesn't require MATLAB license to run, however it requires download of the MCR from Mathworks website, which will occur automatically during the installation process.
 
-If you are using the MCR based version the softwaer installer will guide you through MCR download. Be aware, that it requires connection to the internet during the installation procedure. A version including the MCR into the installation may be made available upon request.
+If you are using the MCR based version the software installer will guide you through MCR download. Be aware, that it requires connection to the internet during the installation procedure. A version including the MCR into the installation may be made available upon request.
 
-Upon installation you will have to locate the application in the folder you specified during the installtion and start the excutable file. Since some platforms do not support MCR splash screen (Mac, Linux) you might not recieve immidiate feedback upon starting the excutable file. Therefore keep in mind that as with any other application it might take certain time to load the fille and open the graphical user interaface.
+Upon installation you will have to locate the application in the folder you specified during the installation and start the executable file. Since some platforms do not support MCR splash screen (Mac, Linux) you might not receive immediate feedback upon starting the executable file. Therefore keep in mind that as with any other application it might take certain time to load the file and open the graphical user interface.
 
 The graphical user interface (GUI) consists of four sections: input/output parameters, analysis flags, parameters and log sections . The software workflow is as follows. First, user specifies the input and output folders of the images to be analyzed with corresponding file tags. Then user chooses from the analysis flags section which of the analysis steps he would like to perform. Afterwards, the user specifies the required parameters in each of the selected analysis steps.
 
 Current settings can be tested by pressing “Test Settings” button in the corresponding analysis step tab. After all parameters have been set user starts the analysis by pressing “Run” button on the input/output panel.
 
 All the output of the software including errors are displayed in the log section. Log then can be save to a file or cleared by pressing respectively “Save” and “Clear” buttons. If the analysis was successful the results of the analysis are exported to the specified “Result Output Folder” as image based and object based readout tables in .xlsx, .csv and .mat.
-
-Help on using the software is avaialble in the *User Guide* section of this webpage or on the [GitHub page of the  project](http://github.com/plaque2). Please use the github page for the further communications and feedback.
-
-
-
-
 
 #Plaque 2.0 User Guide
 
@@ -44,125 +38,154 @@ The basic algorithmic implementation of the software is shown on the flow chart 
  Workflow chart of Plaque 2.0 software 
 
 
-##Deatiled GUI Overview
+## GUI Overview
 
-### General panel
+Plaque 2.0 software
 
-_Plate name_ - defines a name for the current plate analyzed. This parameter is used as a prefix for parameter
 
-_Raw Input Folder_ - indicates the location of the raw (non-stitched) images.
- 
-_Processing Folder_ - indicates where the stitched images are saved for further processing by other segments of the software. 
+### Input/Output panel
 
-_Result Output Folder_ - defines where the output files are saved.
+As the name suggests all the Input/Output
 
-_Nuclei File Mask_, _Virus File Mask_  - specify the file masks in the  _Raw Input Folder_ for correct stitching.
+|Parameter |Description|
+|:----------|:---------|
+_Processing Folder_ | indicates where the processing ready images are located. This parameter also indicates where the stitching module will save stitched images. 
+_Filename pattern_ | defines the regular expression that is then used to parse the metadata (well Rows,well collumns, channels) from the filenames of the images.
+_Plate name_ | defines a name for the current plate analyzed. This is then used as a prefix for output files.
+_Result Output Folder_ | defines where the output files are saved.
+
 
 ### Stitch panel
 
-_Horizontal Image Number_ , _Vertical Image Number_ , - specify the number of well sites  for full well stitching in horizontal and vertical direction accordingly.
-
-
 ![](img/stitchScr.PNG)
+
+Parameter |Description
+----------|-----------
+Input Folder|indicates the location of unstitched image files.
+ Filename pattern | defines the regular expression that is then used to parse the metadata (well Rows,well collumns, channels, sites) from the filenames of the images.
+_Horizontal Image Number_, _Vertical Image Number_  | specify the number of well sites  for full well stitching in horizontal and vertical direction accordingly.
+
+
+
 ### Mask panel
 
+![](img/maskScr.PNG)
 
-_Load Custom Mask_ - if this method is selected the well mask is loaded from the provided  path.
-
-_Manual Mask Definition_ - if this method is selected the _Define Mask_ button is enabled., which if pressed open a new window where the user can specify the correct mask for the  plate wells by dragging and re-sizing an oval shape over the first stitched image from the _Processing Folder_ <sup><a href="#fn1" id="ref1">*</a></sup>.  The determined mask is then saved in the current working folder by double clicking the image
-
-_Automatic Mask Definition_ - if this method is selected the mask is determined automatically using the first stitched image from the  _Processing Folder_ .<sup><a href="#fn1" id="ref1">*</a></sup>
+Parameter |Description
+----------|-----------
+_Load Custom Mask_ | if this method is selected the well mask is loaded from the provided  path.
+_Manual Mask Definition_ | if this method is selected the _Define Mask_ button is enabled., which if pressed open a new window where the user can specify the correct mask for the  plate wells by dragging and re-sizing an oval shape over the first stitched image from the _Processing Folder_ <sup><a href="#fn1" id="ref1">*</a></sup>.  The determined mask is then saved in the current working folder by double clicking the image
+_Automatic Mask Definition_ | if this method is selected the mask is determined automatically using the first stitched image from the  _Processing Folder_ .<sup><a href="#fn1" id="ref1">*</a></sup>
+_Channel_ |defines the channel which used for masking
 
 <sup id="fn1">*both manual and automatic mask definition is currently optimized  Molecular Devices  IXM-XL microscope and Greiner 96-well imaging plates. </sup>
 
 
-![](img/maskScr.PNG)
-
 ### Nuclei panel
  
- 
-_Artifact threshold_ - defines a normalized upper threshold [0-1]  for filtering very bright imaging artifacts. 
+![](img/monolayerScr.PNG)
 
-_Manual Thresholding_ - if this method  is selected foreground segmentation is done using a manual threshold.
-
-_Otsu Global Thresholding_ -  if this method  is selected foreground segmentation is done using a threshold determined by Otsu thresholding algorithm.
-
-_Otsu Local Thresholding_ - if this method is selected the foreground is determined by splitting the image into smaller blocks and performing Otsu thresholding 
-on them.
-
-_Threshold_ - specifies the threshold [0-1] for _Manual Thresholding_. 
-
-_Block size_ - specifies the length of a side of a square block in pixels  used  for _Otsu Local Thresholding_ method.
-
-_Minimal threshold_ - determines the lowest threshold[0-1] for _Otsu Global Thresholding_
-
-_Correction factor_ - defines a correction factor to be multiplied by the threshold determined by _Otsu Global Thresholding_.
-
-_Min/Max Cell Area_ - specifies minimum and maximum areas of nuclei for cell number calculation.
-
-_Gaussian filter sigma_ - defines the standard deviation of the  2D gaussian function for Illumination correction of the nuclei channel images.
+ Parameter |Description
+----------|-----------
+_Artifact threshold_ | defines a normalized upper threshold [0-1]  for filtering very bright imaging artifacts. 
+_Manual Thresholding_ | if this method  is selected foreground segmentation is done using a manual threshold.
+_Otsu Global Thresholding_ |  if this method  is selected foreground segmentation is done using a threshold determined by Otsu thresholding algorithm.
+_Otsu Local Thresholding_ | if this method is selected the foreground is determined by splitting the image into smaller blocks and performing Otsu thresholding on them.
+_Threshold_ | specifies the threshold [0-1] for _Manual Thresholding_. 
+_Block size_ | specifies the length of a side of a square block in pixels  used  for _Otsu Local Thresholding_ method. Image width or height should be divisible by _Block size_/  
+_Minimal threshold_ | determines the lowest threshold[0-1] for _Otsu Global Thresholding_
+_Correction factor_ | defines a correction factor to be multiplied by the threshold determined by _Otsu Global Thresholding_.
+_Min/Max Cell Area_ | specify minimum and maximum areas of nuclei for cell number calculation.
+<i>Correction &#34;ball&#34; radius</i> | defines the radius of the "rolling ball" for the illumination correction.
 
 
-![](img/nucleiScr.PNG)
 ### Virus panel
 
+![](img/plaqueScr.PNG)
 
- _Fixed Threshold_ - defines a threshold for virus image foreground detection.
- 
- _Minimal Plaque Area_ - specifies the minimum area that a foreground image should be to be considered a plaque.
- 
- _Connectivity_ -  defines the maximum  distance between pixels belonging to the same plaque.
-
-_Min/Max Cell Area_ -  specifies minimum and maximum areas of the nuclei in the virus  singal image for cell number calculation. This parameter is only used when nuclear segmentation is disabled.
-
-_Gaussian filter size_ -  defines the Gaussian filter size in pixels (size of the "blurring bell")  for virus image convolution.
-
-_Gaussian filter sigma_ - defines the Gaussian filter standard deviation (width of the "blurring bell") for virus image convolution.
-
-_Peak Region Size_ - defines a maximum size of a region in pixels where only one intensity maximum can be detected.
+ Parameter |Description
+----------|-----------
+ _Fixed Threshold_|defines a threshold for virus image foreground detection.
+ _Minimal Plaque Area_|specifies the minimum area that a foreground image should be to be considered a plaque.
+ _Connectivity_|defines the maximum  distance between pixels belonging to the same plaque.
+_Min/Max Cell Area_|specifies minimum and maximum areas of the nuclei in the virus  singal image for cell number calculation. This parameter is only used when nuclear segmentation is disabled.
+_Gaussian filter size_|defines the Gaussian filter size in pixels (size of the "blurring bell")  for virus image convolution.
+_Gaussian filter sigma_|defines the Gaussian filter standard deviation (width of the "blurring bell") for virus image convolution.
+_Peak Region Size_|defines a maximum size of a region in pixels where only one intensity maximum can be detected.
 
 
-![](img/virusScr.PNG)
+
 
 ## Operation 
 
-It was already mentioned that Plaque 2.0 software contains four distinct, interconnected analysis modules: Stitching, Masking, Nuclei and Virus segmentation.  Let's discuss each of these analysis modules individually and in more detail.
+Plaque 2.0 software contains four distinct, interconnected analysis modules: Stitching, Masking, Monolayer and Plaque segmentation.  Let's discuss each of these analysis modules individually and in more detail.
  
-Stitching module is responsible for merging together the individual raw well site images together into a single image. The images are read from the  provided _Raw Input Folder_  using the following regular expression 
+_Stitching_ module is responsible for merging together the individual well site images together into a single image. The images are read from the  provided _Input Folder_  using the _Filename pattern_ which is defined as a MATLAB regular expression. `(?<wellName>[A-Z][0-9]*)` , `(?<siteName>s[0-9]*)`, `(?<channelName>w[0-9]*)` are tokens which are used to identify where the software needs to read well,site and channel metadata in the file name. More information about regular expressions is available at  ![](http://ch.mathworks.com/help/matlab/matlab_prog/regular-expressions.html). This is currently optimized for the output naming convention of the _Molecular Devices_ microscopes.  After the images are read they are sorted by alphabetical order and merged into single image taking into account the number of vertical and horizontal images comprising an image and saved to the  _Processing Folder_.
 
-      \w*[ABCDEFGHIJKLMNOP][0-9][0-9]\w*s[0-9]\w*w[1-2].TIF
+All the other modules read images from the _Processing Folder_ with the _Filename pattern_ defined in the _Input/Output_ panel.
 
-This is currently optimized for the output naming convention of the _Molecular Devices_ microscopes.  After the images are read they are sorted by alphabetical order and merged into single image taking into account the number of vertical and horizontal images comprising an image.
+_Masking_ module is responsible for creating an overlay mask over the stitched image. This is done to prevent any segmentation of image data outside the region of interest. Three different options are currently available in Plaque 2.0 for mask definition. As a first option, one can load an already predefined mask from an external file by providing its path in the _Custom Mask File_ edit box. The second option is _Manual Mask detection_ which lets user specify an oval region of interest over the first image in the _Processing Folder_. The Third options is _Automatic Mask Detection_ which identifies the well using the center of the mass of the over-segmented image and  draws a circle around it with a certain radius. This radius is pre-defined for  Greiner 96-well imaging plates. Both manual and automatic  mask detection methods are to be generalized and improved in future versions of Plaque 2.0.
 
-Masking module is responsible for creating an overlay mask over the stitched image. This is done to prevent any segmentation of image data outside the region of interest. Three different options are currently available in Plaque 2.0 for mask definition. As a first option, one can load an already predefined mask from an external file by providing its path in the _Custom Mask File_ edit box. The second option is _Manual Mask detection_ which lets user specify an oval region of interest over the first image in the _Processing Folder_. The Third options is _Automatic Mask Detection_ which identifies the well using the center of the mass of the over-segmented image and  draws a circle around it with a certain radius. This radius is pre-defined for  Greiner 96-well imaging plates. Both manual and automatic  mask detection methods are to be generalized and improved in future versions of Plaque 2.0.
-
-Nuclei segmentation module is responsible for quantification of nuclei signal images.  The segmentation is done in a pipeline fashion. First images are loaded from _Processing Folder_ and depending on user preference illumination correction is performed as at mid-range magnification non-linear illumination effects might occur. Illumination correction by subtracting the convolution of the original image with specified 2D  Gaussian distribution (we assume that the illumination changes according to a certain Gaussian distribution) . On the next step the image is filtered  of very bright artifacts using _Artifact threshold_. The resulting image is then again thresholded using either manual or automatic (local or global Otsu) methods. If the selected method is global Otsu thresholding the resulted threshold is further corrected by _Minimal threshold_ and _Correction factor_ parameters.  In case of local Otsu thresholding user is required to specify the  _Block size_ parameter which determines the sides of square regions that the image is divided to. The regions then are thresholded using the same Otsu thresholding algorithm. 
+_Monolayer_ module is responsible for quantification of nuclei signal images.  The segmentation is done in a pipeline fashion. First images are loaded from _Processing Folder_ and depending on user preference illumination correction is performed as at mid-range magnification non-linear illumination effects might occur. Illumination correction is done using the "rolling ball" background subtraction algorithm. The radius of the ball is defined by the <i>Correction &#34;ball&#34; radius</i> parameter. On the next step the image is filtered  of very bright artifacts using _Artifact threshold_. The resulting image is then again thresholded using either manual or automatic (local or global Otsu) methods. If the selected method is global Otsu thresholding the resulted threshold is further corrected by _Minimal threshold_ and _Correction factor_ parameters.  In case of local Otsu thresholding user is required to specify the  _Block size_ parameter which determines the sides of square regions that the image is divided to. The regions then are thresholded using the same Otsu thresholding algorithm. 
 After foreground pixels are identified the software quantifies the amount of nuclei present in the well. This is done by simply dividing the sum of all non-zero pixels in the thresholded image to the mean area of nuclei determined from predefined minimum and maximum nuclei areas.
+Here is an example of a thresholded nuclear image:
 
----
+![](img/nuc.PNG)
 
-placeholder for images
+Virus segmentation module is responsible for quantification of virus signal images. Unlike nuclei signal images, foreground determination is done by using a fixed threshold. The reason for this is to keep the resulting readouts  of quantification comparable among different wells as much as possible_.  After the foreground is determined, neighboring pixels are connected using the _Connectivity_  parameter. This generates  a "bloated" connected image which is then used to determine  if a set pixels belongs to a certain region. The labeled regions are then filtered by pixel area using the specified _Minimal Plaque Area_. The determined regions are called plaque regions.  Here how a sample image looks after quantification" 
+![](img/vir_thresh.png)
+If the _Fine Detection_ option is enabled the software tries to further quantify and identify local intensity maxima of the detected plaque regions. To achieve this first all the detected plaque regions are smoothed using a 2-D Gaussian function.
+![](img/samplePlaque.png)
+For example this image of a plaque(represented in intensoty color-code) is converted into 
+![](img/samplePlaqueFiltered.png)
+This is  then proceeded by search of local maxima in within already identified plaque regions. The _Peak Region Size_  defines a maximum size of a region in pixels where only one intensity maximum can be detected.  
 
----
-
-Virus segmentation module is responsible for quantification of virus signal images. _Unlike nuclei signal images, foreground determination is done by using a fixed threshold. The reason for this is to keep the resulting readouts  of quantification comparable among different wells as much as possible_.  After the foreground is determined, neighboring pixels are connected using the _Connectivity_  parameter. This generates  a "bloated" connected image which is then used to determine  if a set pixels belongs to a certain region. The labeled regions are then filtered by pixel area using the specified _Minimal Plaque Area_. The determined regions are called plaque regions.  If the _Fine Detection_ option is enabled the software tries to further quantify and identify local intensity maxima of the detected plaque regions. To achieve this the image is first smoothed using a 2-D Gaussian function. This is  proceeded by search of local maxima in within already identified plaque regions. The _Peak Region Size_  defines a maximum size of a region in pixels where only one intensity maximum can be detected.  
-
----
-
-placeholder for images
-
----
 
 
 ## Readouts
 
-<br>
-<br>
-<br>
-***
+Output of the software is saved as object and image based data. Image based data represents well readouts, whereas object based data represents readouts for individual plaque regions. Below is the full-list of readouts the Plaque 2.0 provides:
+
+
+Image-Based readout | Description
+-------------|-----------------
+NucleiImageName | current nuclei file name
+wellRow | current Row
+wellCollumn |current Collumn
+maxNucleiIntensity | maximum nuclear intensity found in the image
+totalNucleiIntensity | sum of all the intensities in the image (after masking)
+meanNucleiIntensity | mean of all the intensities in the image
+numberOfNuclei | number of nuclei estimated
+VirusImageName | current virus file name
+maxVirusIntensity | maximum virus intensity found n the image
+totalVirusIntensity | sum of all the intensities in the image (after masking)
+meanVirusIntensity | mean of all the intensities in the image
+numberOfPlaques | number of Plaques detected
+numberOfInfectedNuclei | number of infected nuclei detected after overlaying the nuclear image if present
+
+
+Object-Based readout | Description
+-------------|-----------------
+Area | pixel area of the plaque region
+Centroid | centroid of the plaque region
+BoundingBox  | coordinates of the plaque region in [x y width height] format
+MajorAxisLength | major axis length of the fitted ellipsoid to the current plaque region
+MinorAxisLength | minor axis length of the fitted ellipsoid to the current plaque region
+Eccentricity | Eccentricity of the current plaque region
+ConvexArea | Convex area of the current plaque region
+numberOfNucleiInPlaque | number of nuclei estimated in the plaque
+numberOfInfectedNucleiInPlaque | number of infected nuclei estimated in the plaque
+wellRow | current well Row
+wellCollumn | current well Collumn
+maxIntensityGFP | maximum of all the intensities in the image
+totalIntensityGFP | sum of all the intensities in the image
+meanIntensity | mean of all the intensities in the current plaque region
+
 
 ####            Copyright (C) 2014 Artur Yakimovich and Vardan Andriasyan
 <br>
+
+
 
 </xmp>
 
