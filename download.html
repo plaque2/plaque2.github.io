@@ -23,17 +23,17 @@
 
 OS X 10.9 based compiled version, not requiring MATLAB license (but MCR, which is installed automatically). This installer version requires internet connection:
 
-* [Plaque2_0141118_OSX_10_9_online.zip](Plaque2_0141118_OSX_10_9_online.zip) - 49 Mb
+* [Plaque2_0141118_OSX_10_9_online.zip](Plaque2_0141118_OSX_10_9_online.zip) - 52.5 Mb
 
 
 
 Windows 7 (8, 8.1) 64-bit based compiled version, not requiring MATLAB license (but MCR, which is installed automatically). This installer version requires internet connection:
 
-* [Plaque2_0141118_WIN_7_8_64_online.zip](Plaque2_0141118_WIN_7_8_64_online.zip) - 57 Mb
+* [Plaque2_0141118_WIN_7_8_64_online.zip](Plaque2_0141118_WIN_7_8_64_online.zip) - 57.3 Mb
 
 Ubuntu (13.10) 64-bit based compiled version, not requiring MATLAB license (but MCR, which is installed automatically). This installer version requires internet connection:
 
-* [Plaque2_0141118_ubuntu-13.10_online.zip](Plaque2_0141118_ubuntu-13.10_online.zip) - 56 Mb
+* [Plaque2_0141118_ubuntu-13.10_online.zip](Plaque2_0141118_ubuntu-13.10_online.zip) - 56.4 Mb
 
 <br><br><br>
 ## MATLAB Source-code GitHub Repository 
@@ -112,7 +112,23 @@ Plaque2_web installer MCR will start downloading automatically.
 
 * Unzip the file you have downloaded
 
-* Open new terminal window and change the current folder to the folder where the downloaded files where unzipped isng the 'cd' bash command. Run  'sudo /Plaque2_mcr.install' for offline and 'sudo Plaque2_web.install' for online installation.This will require to type in the root password. The installation time will vary depending on the machine you are using.
+* Open new terminal window and change the current folder to the folder where the downloaded files where unzipped using the 'cd' bash command.
+
+Make the installer executable, e.g. by running: 
+'''
+sudo chmod 777 Plaque2_web.install
+'''
+Then start the installer by invoking following
+'''
+sudo ./Plaque2_mcr.install
+'''
+
+  for offline or
+
+'''
+sudo Plaque2_web.install
+
+  for online installation. The installation time will vary depending on the machine you are using.
  
 * Press next.
 
@@ -131,16 +147,19 @@ Plaque2_web installer MCR will start downloading automatically.
 
 * Press finish to close the installer
 
-* Edit .profile file. By default you can use gedit software for that purpose with 'gedit .profile' command.
-
-* Add the following lines to the end of this file. If MCR wasn't installed into the default folder replace 'usr/local/MATLAB/MATLAB_Compiler_Runtime' with the folder that 
-
-#### MATLAB MCR
+* After installation make sure to add the missing files for the MCR to run by:
 ```
+sudo cp /usr/local/MATLAB/MATLAB_Compiler_Runtime/v83/runtime/glnxa64/* /usr/local/MATLAB/MATLAB_Compiler_Runtime/v83/bin/glnxa64
+```
+* Then edit .profile file. By default you can use gedit software for that purpose with following command:
+```
+gedit ~/.profile
+```
+* Add the following lines to the end of this file. If MCR wasn't installed into the default folder replace 'usr/local/MATLAB/MATLAB_Compiler_Runtime' with the folder that you have installed the MCR to:
+```
+#MCR
 export LD_LIBRARY_PATH=/usr/local/MATLAB/MATLAB_Compiler_Runtime/v83/bin/glnxa64
 export XAPPLRESDIR=/usr/local/MATLAB/MATLAB_Compiler_Runtime/v83/X11/app-defaults
-```
-```
 export PATH=$PATH:$LD_LIBRARY_PATH
 export PATH=$PATH:$XAPPLRESDIR
 ```
@@ -148,13 +167,18 @@ export PATH=$PATH:$XAPPLRESDIR
 ```
     echo STARTUP=\"/usr/bin/env LD_LIBRARY_PATH=\${LD_LIBRARY_PATH} \${STARTUP}\" | sudo tee /etc/X11/Xsession. /90preserve_ld_library_path
 ```
-*Restart the computer
+* Restart the computer
 
-* open terminal and change to the Plaque2 installation folder by default to /usr/Plaque2
+* Open terminal and change to the Plaque2 installation folder (by default to /usr/Plaque2)
 
-* run 
+* Make the folder containing the main file of Plaque2.0 executable by running e.g.
 ```
-sudo 'chmod -R 777 application/'
+sudo chmod -r 777 application/
+```
+* Run the application by
+```
+cd application/
+./Plaque2
 ```
 
 ## Quick Guide using Sample Images Example

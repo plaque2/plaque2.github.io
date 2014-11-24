@@ -18,7 +18,7 @@
 
 # Installation, Getting started and getting Help with Plaque 2.0
 
-The Plaque 2.0 software is intended for quantification  and visualization of viral spread in cell mono-layers. Plaque2.0 will be available as MATLAB source code or as precompiled for  various platforms (Windows, Mac, Linux - see [Download](download.html) section) software based on MATLAB Compiler Runtime (MCR). The software is available under the (GPLv3) [http://www.gnu.org/copyleft/gpl.html] license. MCR based version doesn't require MATLAB license to run, however it requires download of the MCR from Mathworks website, which will occur automatically during the installation process.
+The Plaque 2.0 software is intended for quantification  and visualization of viral spread in cell mono-layers. Plaque2.0 will be available as MATLAB source code or as precompiled for  various platforms (Windows, Mac, Linux - see [Download](download.html) section) software based on MATLAB Compiler Runtime (MCR). The software is available under the (GPLv3)[http://www.gnu.org/copyleft/gpl.html] license. MCR based version doesn't require MATLAB license to run, however it requires download of the MCR from Mathworks website, which will occur automatically during the installation process.
 
 If you are using the MCR based version the software installer will guide you through MCR download. Be aware, that it requires connection to the internet during the installation procedure. A version including the MCR into the installation may be made available upon request.
 
@@ -78,7 +78,7 @@ _Manual Mask Definition_ | if this method is selected the _Define Mask_ button i
 _Automatic Mask Definition_ | if this method is selected the mask is determined automatically using the first stitched image from the  _Processing Folder_ .<sup><a href="#fn1" id="ref1">*</a></sup>
 _Channel_ |defines the channel which used for masking
 
-<sup id="fn1">*both manual and automatic mask definition is currently optimized  Molecular Devices  IXM-XL microscope and Greiner 96-well imaging plates. </sup>
+<sup id="fn1">*both manual and automatic mask definition is currently optimized for Molecular Devices IXM-XL microscope and Greiner-Bio-One 96-well imaging plates. </sup>
 
 
 ### Nuclei panel
@@ -132,7 +132,7 @@ Here is an example of a thresholded nuclear image:
 
 ![](img/nuc.png)
 
-Virus segmentation module is responsible for quantification of virus signal images. Unlike nuclei signal images, foreground determination is done by using a fixed threshold. The reason for this is to keep the resulting readouts  of quantification comparable among different wells as much as possible_.  After the foreground is determined, neighboring pixels are connected using the _Connectivity_  parameter. This generates  a "bloated" connected image which is then used to determine  if a set pixels belongs to a certain region. The labeled regions are then filtered by pixel area using the specified _Minimal Plaque Area_. The determined regions are called plaque regions.  Here how a sample image looks after quantification" 
+Virus segmentation module is responsible for quantification of virus signal images. Unlike nuclei signal images, foreground determination is done by using a fixed threshold. The reason for this is to keep the resulting readouts  of quantification comparable among different wells as much as possible.  After the foreground is determined, neighboring pixels are connected using the _Connectivity_  parameter. This generates  a "bloated" connected image which is then used to determine  if a set pixels belongs to a certain region. The labeled regions are then filtered by pixel area using the specified _Minimal Plaque Area_. The determined regions are called plaque regions.  Here how a sample image looks after quantification:
 ![](img/vir_thresh.png)
 If the _Fine Detection_ option is enabled the software tries to further quantify and identify local intensity maxima of the detected plaque regions. To achieve this first all the detected plaque regions are smoothed using a 2-D Gaussian function.
 
