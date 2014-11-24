@@ -130,7 +130,7 @@ _Monolayer_ module is responsible for quantification of nuclei signal images.  T
 After foreground pixels are identified the software quantifies the amount of nuclei present in the well. This is done by simply dividing the sum of all non-zero pixels in the thresholded image to the mean area of nuclei determined from predefined minimum and maximum nuclei areas.
 Here is an example of a thresholded nuclear image:
 
-![](img/nuc.PNG)
+![](img/nuc.png)
 
 Virus segmentation module is responsible for quantification of virus signal images. Unlike nuclei signal images, foreground determination is done by using a fixed threshold. The reason for this is to keep the resulting readouts  of quantification comparable among different wells as much as possible_.  After the foreground is determined, neighboring pixels are connected using the _Connectivity_  parameter. This generates  a "bloated" connected image which is then used to determine  if a set pixels belongs to a certain region. The labeled regions are then filtered by pixel area using the specified _Minimal Plaque Area_. The determined regions are called plaque regions.  Here how a sample image looks after quantification" 
 ![](img/vir_thresh.png)
@@ -138,7 +138,7 @@ If the _Fine Detection_ option is enabled the software tries to further quantify
 
 ![](img/samplePlaque.png)
 
-For example this image of a plaque(represented in intensoty color-code) is converted into 
+For example this image of a plaque(represented in intensity color-code) is converted into 
 
 ![](img/samplePlaqueFiltered.png)
 
